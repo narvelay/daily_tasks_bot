@@ -171,5 +171,14 @@ def main():
 
 # ---------- Start ----------
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:
+        import traceback, sys
+        traceback.print_exc()
+        sys.stdout.flush()
+        sys.stderr.flush()
+        # Завершаем с кодом 1, чтобы Render увидел падение и логи
+        sys.exit(1)
+
 
